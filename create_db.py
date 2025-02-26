@@ -33,23 +33,34 @@ conn.close()
 #code for the database creation using MongoDB
 
 # ..................................................
-
-
+# DATABASE MONGODB + table
+# Connessione a MongoDB
 myclient = pymongo.MongoClient('mongodb+srv://annaoccoffer:generation123@cluster0.kqbdd.mongodb.net/')
+database = myclient["marketing_adv_db"]
+collection_name = database["marketing_adv"]
 
-database_name = myclient["db_marketing_adv"]
-collection_name = database_name["marketing_adv"]
-
-print(f"database name: {database_name.name}")
-print(myclient.list_database_names())
-
-with open('Advertising_modified.csv',"r", encoding='utf-8') as f:
+# Aprire e leggere il file CSV
+with open('Advertising_modified.csv', "r", encoding='utf-8') as f:
     reader = csv.DictReader(f)
-    marketing_adv = []
-    date = list(reader)
+    marketing_adv = []  # Lista per contenere i dati puliti
 
-    if date:
-        collection_name.insert_many(date)
-        print("Dati inseriti con successo!")
+    for row in reader:
+        try:
+            # Convertire le colonne in float e pulire i dati
+            row['TV'] = float(row['TV']) if row['TV'].strip() else None
+            row['radio'] = float(row['radio']) if row['radio'].strip() else None
+            row['newspaper'] = float(row['newspaper']) if row['newspaper'].strip() else None
+            row['sales'] = float(row['sales']) if row['sales'].strip() else None
+
+            marketing_adv.append(row)  # Aggiungere il dizionario pulito alla lista
+        except ValueError as e:
+            print(f"Riga ignorata a causa di errore di conversione: {row}. Errore: {e}")
+
+# Inserire i dati in MongoDB
+    if marketing_adv:
+        collection_name.insert_many(marketing_adv)  # Inserire i dati puliti in un'unica operazione
+        print(f"{len(marketing_adv)} dati inseriti!")
     else:
-        print("Il file CSV è vuoto, nessun dato inserito.")
+        print("Nessun dato valido da inserire.")
+
+    print(marketing_adv)
