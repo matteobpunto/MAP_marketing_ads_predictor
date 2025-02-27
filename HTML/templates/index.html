@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Adv</title>
+    <style>
+        body {
+            background-image: url('sonolac.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid white;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>BUONGIORNISSIMO!</h1>
+        <table>
+            <tr>
+                <th>TV</th>
+                <th>Radio</th>
+                <th>Newspaper</th>
+                <th>Sales</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.tv }}</td>
+                <td>{{ row.radio }}</td>
+                <td>{{ row.newspaper }}</td>
+                <td>{{ row.sales }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
