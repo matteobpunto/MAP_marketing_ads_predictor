@@ -17,14 +17,12 @@ with open('Advertising_clear.csv', "r", encoding='utf-8') as f:
                 'sales': float(row['sales'].strip()) if row['sales'].strip() else 0
             })
         except ValueError as e:
-            print(f"Errore nella riga: {row}, saltata. Errore: {e}")
+            print(f"Error in row: {row}, skipped. Error: {e}")
 
-print(f"Caricate {len(marketing_data)} registrazioni.")
+print(f"Loaded {len(marketing_data)} records.")
 
-
-#conn.commit()
-#conn.close()
-
+# conn.commit()
+# conn.close()
 
 @app.route('/')
 def index():
