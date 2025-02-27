@@ -37,7 +37,7 @@ with open('Advertising_modified.csv', "r", encoding='utf-8') as f:
         host="localhost",
         user="root",
         password="",
-        database = "marketing_adv_db"
+        database = "db_marketing_adv"
     )
 
     cursor = conn.cursor()
