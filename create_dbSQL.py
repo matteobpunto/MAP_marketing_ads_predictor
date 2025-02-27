@@ -1,11 +1,9 @@
 #code for the database creation using SQL from pyhton
 
 import mysql.connector
-import pymongo
-from pymongo import mongo_client
 import csv
 
-# Connessione al server MySQL
+#Connessione al server MySQL
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -27,7 +25,7 @@ CREATE TABLE IF NOT EXISTS marketing_adv (
     sales FLOAT
 )
 """)
-#...........................................
+# #...........................................
 #create table on SQL
 with open('Advertising_modified.csv', "r", encoding='utf-8') as f:
     reader = csv.DictReader(f)
@@ -37,7 +35,7 @@ with open('Advertising_modified.csv', "r", encoding='utf-8') as f:
         host="localhost",
         user="root",
         password="",
-        database = "marketing_adv_db"
+        database = "db_marketing_adv"
     )
 
     cursor = conn.cursor()
