@@ -28,5 +28,10 @@ with open('Aziende_Italiane.csv', encoding='utf-8') as f:
         lista_prova.append(query)
 
 
+conn.commit()
 
+print("Data inserted successfully!")
 print(lista_prova)
+
+cursor.close()
+conn.close()
