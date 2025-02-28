@@ -1,5 +1,4 @@
 # Code for the database creation using SQL from Python
-
 import mysql.connector
 import csv
 
@@ -28,7 +27,7 @@ CREATE TABLE IF NOT EXISTS marketing_adv (
 
 # ...........................................
 # Create table in SQL and insert data
-with open('Advertising_clear.csv', "r", encoding='utf-8') as f:
+with open('../Advertising_clear.csv', "r", encoding='utf-8') as f:
     reader = csv.DictReader(f)
     marketing_list = []  # List to store cleaned data
 
