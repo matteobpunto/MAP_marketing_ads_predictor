@@ -50,18 +50,7 @@ CREATE TABLE IF NOT EXISTS type (
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS slot (
     slot_id INT PRIMARY KEY AUTO_INCREMENT,
-    slot1_start TIME,
-    slot1_end TIME,
-    slot2_start TIME,
-    slot2_end TIME,
-    slot3_start TIME,
-    slot3_end TIME,
-    slot4_start TIME,
-    slot4_end TIME,
-    slot5_start TIME,
-    slot5_end TIME,
-    slot6_start TIME,
-    slot6_end TIME
+    time_slot VARCHAR(20)
     );
 """)
 
