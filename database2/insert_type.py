@@ -70,5 +70,5 @@ for _ in range(189):
     print("Data inserted successfully!")
 
 
-    cursor.close()
-    conn.close()
+cursor.close()
+conn.close()
