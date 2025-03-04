@@ -28,7 +28,7 @@ with open('Advertising_clear.csv', encoding='utf-8') as f:
     INSERT INTO marketing (tv, radio, newspaper, sales, company_id) 
     VALUES (%s, %s, %s, %s, %s)
     """
-
+    contgiri = 0
     data_to_insert = []
     for row in reader:
         tv = float(row[0])
@@ -38,10 +38,11 @@ with open('Advertising_clear.csv', encoding='utf-8') as f:
         company_id = random.choice(company_ids)[0]
 
         data_to_insert.append((tv, radio, newspaper, sales, company_id))
+        contgiri +=1
 
     cursor.executemany(query, data_to_insert)
     conn.commit()
-print("Marketing data inserted successfully!")
+print(f"Marketing data inserted successfully! inserite righe {contgiri}")
 
 # Close the cursor and connection
 cursor.close()
