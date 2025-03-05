@@ -57,29 +57,31 @@ print(f"Polynomial Regression RMSE: {rmse_poly:.2f}")
 mae_poly = mean_absolute_error(y_test, y_poly_pred)
 print(f"Polynomial Regression MAE: {mae_poly:.2f}")
 
-# Visualization: Scatter plots with regression line
-fig, axes = plt.subplots(1, 3, figsize=(16, 6))
+# Visualizzazione: Scatter plots con linea di regressione
+fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(16, 6))
 
-# TV vs Sales
-axes[0].plot(df['TV'],df['sales'], 'o')
-axes[0].plot(df['TV'],y_hat, 'o', color = 'red')
+# TV vs Sales (solo test set)
+axes[0].plot(X_test['TV'], y_test, 'o', label='Actual Sales')
+axes[0].plot(X_test['TV'], y_hat, 'o', color='red', label='Predicted Sales')
 axes[0].set_ylabel("Sales")
-axes[0].set_title("TV sspend")
+axes[0].set_title("TV Spend")
+axes[0].legend()
 
-# Radio vs Sales
-axes[1].plot(df['radio'],df['sales'], 'o')
-axes[1].plot(df['radio'],y_hat, 'o', color = 'red')
+# Radio vs Sales (solo test set)
+axes[1].plot(X_test['radio'], y_test, 'o', label='Actual Sales')
+axes[1].plot(X_test['radio'], y_hat, 'o', color='red', label='Predicted Sales')
 axes[1].set_title("Radio Spend")
 axes[1].set_ylabel("Sales")
+axes[1].legend()
 
-# Newspapers vs Sales
-axes[2].plot(df['newspaper'],df['sales'], 'o')
-axes[2].plot(df['newspaper'],y_hat, 'o', color = 'red')
-axes[2].set_title("Newspaper spend")
+# Newspaper vs Sales (solo test set)
+axes[2].plot(X_test['newspaper'], y_test, 'o', label='Actual Sales')
+axes[2].plot(X_test['newspaper'], y_hat, 'o', color='red', label='Predicted Sales')
+axes[2].set_title("Newspaper Spend")
 axes[2].set_ylabel("Sales")
+axes[2].legend()
 
-
-# Show plots
+# Mostra i plot
 plt.tight_layout()
 plt.show()
 
