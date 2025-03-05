@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effetto Lente su Immagine</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <section class="hero">
+
+        <div class="image-container">
+            <!-- L'immagine sfocata è gestita nel CSS -->
+        </div>
+
+        <p>Scopri l'immagine con l'effetto lente</p>
+
+        <div class="button-container">
+            <button class="btn">Scopri di più</button>
+            <button class="btn">Contattaci</button>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script>
+    document.querySelector(".image-container").addEventListener("mousemove", (e) => {
+    const { left, top } = e.target.getBoundingClientRect();
+    e.target.style.setProperty("--x", `${e.clientX - left}px`);
+    e.target.style.setProperty("--y", `${e.clientY - top}px`);
+});</script>
+
+
+</body>
+</html>
