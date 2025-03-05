@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression,Ridge
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.metrics import mean_squared_error
+from sklearn.metrics  import mean_absolute_error
 import math
 # # --- END OF IMPORT SECTION --
 
@@ -32,9 +33,14 @@ lin_model = LinearRegression()
 lin_model.fit(X_train_scaled, y_train)
 y_lin_pred = lin_model.predict(X_test_scaled)
 
+# Define y_hat for Linear Regression predictions
+y_hat = y_lin_pred
+
 # Evaluate Linear Regression
 rmse_lin = math.sqrt(mean_squared_error(y_test, y_lin_pred))
 print(f"Linear Regression RMSE: {rmse_lin:.2f}")
+mae_lin = mean_absolute_error(y_test, y_lin_pred)
+print(f"Linear Regression MAE: {mae_lin:.2f}")
 
 # Polynomial Regression (Degree = 2)
 poly = PolynomialFeatures(degree=2, include_bias=False)
@@ -48,27 +54,30 @@ y_poly_pred = poly_model.predict(X_test_poly)
 # Evaluate Polynomial Regression
 rmse_poly = math.sqrt(mean_squared_error(y_test, y_poly_pred))
 print(f"Polynomial Regression RMSE: {rmse_poly:.2f}")
+mae_poly = mean_absolute_error(y_test, y_poly_pred)
+print(f"Polynomial Regression MAE: {mae_poly:.2f}")
 
 # Visualization: Scatter plots with regression line
-fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+fig, axes = plt.subplots(1, 3, figsize=(16, 6))
 
 # TV vs Sales
-sns.regplot(x=df["TV"], y=df["sales"], ax=axes[0], scatter_kws={"alpha":0.5}, line_kws={"color":"blue"})
-axes[0].set_title("TV vs Sales")
-axes[0].set_xlabel("TV Advertising Budget")
+axes[0].plot(df['TV'],df['sales'], 'o')
+axes[0].plot(df['TV'],y_hat, 'o', color = 'red')
 axes[0].set_ylabel("Sales")
+axes[0].set_title("TV sspend")
 
 # Radio vs Sales
-sns.regplot(x=df["radio"], y=df["sales"], ax=axes[1], scatter_kws={"alpha":0.5}, line_kws={"color":"red"})
-axes[1].set_title("Radio vs Sales")
-axes[1].set_xlabel("Radio Advertising Budget")
+axes[1].plot(df['radio'],df['sales'], 'o')
+axes[1].plot(df['radio'],y_hat, 'o', color = 'red')
+axes[1].set_title("Radio Spend")
 axes[1].set_ylabel("Sales")
 
 # Newspapers vs Sales
-sns.regplot(x=df["newspaper"], y=df["sales"], ax=axes[2], scatter_kws={"alpha":0.5}, line_kws={"color":"green"})
-axes[2].set_title("Newspaper vs Sales")
-axes[2].set_xlabel("Newspaper Advertising Budget")
+axes[2].plot(df['newspaper'],df['sales'], 'o')
+axes[2].plot(df['newspaper'],y_hat, 'o', color = 'red')
+axes[2].set_title("Newspaper spend")
 axes[2].set_ylabel("Sales")
+
 
 # Show plots
 plt.tight_layout()
