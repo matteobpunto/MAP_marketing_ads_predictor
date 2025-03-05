@@ -1,0 +1,208 @@
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Hero Banner */
+/* Stile dell'hero */
+.hero {
+    background: url("/static/images/hero banner.png") no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Contenitore del testo */
+.text-changer {
+   height: 40px;
+   display: block;
+   flex-direction: column;
+
+}
+#intro-text{
+    font-size: 50px;
+}
+.roles-container {
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+}
+.role {
+    display:block;
+    font-size: 50px;
+    height: 100%;
+    color: #ed746f;
+    animation: role-change 6s infinite;
+}
+
+@keyframes role-change {
+  /* Prima parola */
+  0%   { transform: translateY(0); }
+  20%  { transform: translateY(0); }
+
+  /* Seconda parola */
+  33%  { transform: translateY(-105%); }
+  53%  { transform: translateY(-100%); }
+
+  /* Terza parola */
+  66%  { transform: translateY(-205%); }
+  86%  { transform: translateY(-200%); }
+
+  /* Torna alla prima parola */
+  100% { transform: translateY(-300%); }
+}
+
+
+
+/*
+@keyframes role-change {
+  10% {
+    transform: translateY(-102%);
+  }
+  25% {
+    transform: translateY(-100%);
+  }
+  35% {
+    transform: translateY(-202%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  60% {
+    transform: translateY(-302%);
+  }
+  75% {
+    transform: translateY(-300%);
+  }
+  85% {
+    transform: translateY(-402%);
+  }
+  100% {
+    transform: translateY(-400%);
+  }
+}
+/*
+
+/* Testo animato */
+.changing-text {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 60px; /* Altezza del testo */
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff4d4d; /* Cambia il colore in base al tuo design */
+}
+
+/* Testo fisso */
+.hero-content h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Animazione del testo */
+.changing-text span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 6s infinite;
+}
+
+/* Timing delle parole */
+.changing-text span:nth-child(1) { animation-delay: 0s; }
+.changing-text span:nth-child(2) { animation-delay: 2s; }
+.changing-text span:nth-child(3) { animation-delay: 4s; }
+
+/* Effetto slide-up */
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    10% { opacity: 1; transform: translateY(0); }
+    30% { opacity: 1; }
+    40% { opacity: 0; transform: translateY(-40px); }
+    100% { opacity: 0; }
+}
+
+
+/* Sezione sfondo nero */
+.dark-section {
+    background-color: #000;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.dark-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Contenitore principale */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Immagine */
+.image-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Testo e bottone */
+.text-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: left;
+    padding: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background-color: darkred;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-container {
+        text-align: center;
+    }
+}
