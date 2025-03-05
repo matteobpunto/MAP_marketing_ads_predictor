@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS target (
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS marketing_tv (
-    tv_id INT PRIMARY KEY,
+    tv_id INT PRIMARY KEY AUTO_INCREMENT,
     marketing_id INT,
     type_id INT,
     slot_id INT,
