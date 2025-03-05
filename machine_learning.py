@@ -9,6 +9,7 @@ from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics  import mean_absolute_error
 import math
+from sklearn.metrics import r2_score
 # # --- END OF IMPORT SECTION --
 
 
@@ -42,6 +43,17 @@ print(f"Linear Regression RMSE: {rmse_lin:.2f}")
 mae_lin = mean_absolute_error(y_test, y_lin_pred)
 print(f"Linear Regression MAE: {mae_lin:.2f}")
 
+# Fare previsioni sui dati di test
+y_pred = lin_model.predict(X_test_scaled)
+
+# Calcolare metriche di valutazione
+r2 = r2_score(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+
+# Stampare i risultati
+print(f"R²: {r2:.2f}")
+print(f"MSE: {mse:.2f}")
+
 # Polynomial Regression (Degree = 2)
 poly = PolynomialFeatures(degree=2, include_bias=False)
 X_train_poly = poly.fit_transform(X_train_scaled)
@@ -51,18 +63,23 @@ poly_model = LinearRegression()
 poly_model.fit(X_train_poly, y_train)
 y_poly_pred = poly_model.predict(X_test_poly)
 
+# Visualizzazione: Scatter plots con linea di regressione
+fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(16, 6))
+
 # Evaluate Polynomial Regression
 rmse_poly = math.sqrt(mean_squared_error(y_test, y_poly_pred))
 print(f"Polynomial Regression RMSE: {rmse_poly:.2f}")
 mae_poly = mean_absolute_error(y_test, y_poly_pred)
 print(f"Polynomial Regression MAE: {mae_poly:.2f}")
 
-# Visualizzazione: Scatter plots con linea di regressione
-fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(16, 6))
-
 # TV vs Sales (solo test set)
 axes[0].plot(X_test['TV'], y_test, 'o', label='Actual Sales')
-axes[0].plot(X_test['TV'], y_hat, 'o', color='red', label='Predicted Sales')
+axes[0].plot(X_test['TV'], y_lin_pred, 'o', color='red', label='Predicted Sales (Linear)')
+axes[0].plot(X_test['TV'], y_poly_pred, 'o', color='green', label='Predicted Sales (Polynomial)')
+
+# TV vs Sales (solo test set)
+# axes[0].plot(X_test['TV'], y_test, 'o', label='Actual Sales')
+# axes[0].plot(X_test['TV'], y_hat, 'o', color='red', label='Predicted Sales')
 axes[0].set_ylabel("Sales")
 axes[0].set_title("TV Spend")
 axes[0].legend()
