@@ -200,3 +200,5 @@ plt.show()
 # with open('regression_model.pkl', 'wb') as file:
 #     pickle.dump((scaler, model), file)
 #     print("Modello salvato come 'regression_model.pkl'")
+
+
