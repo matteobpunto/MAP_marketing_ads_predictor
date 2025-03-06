@@ -27,7 +27,7 @@ plt.show()
 
 # Creating a pair plot to visualize relationships between variables
 sns.pairplot(data=df)
-# plt.show()
+plt.show()
 
 # Separate independent and dependent variables
 X = df[["TV", "radio", "newspaper"]]
