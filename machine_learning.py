@@ -165,11 +165,11 @@ sns.histplot(df["sales"], bins=15, kde=True, color="blue")
 plt.title("Distribution of Sales")
 plt.xlabel("Sales")
 plt.ylabel("Frequency")
-plt.show()
+# plt.show()
 
 # Creating a pair plot to visualize relationships between variables
 sns.pairplot(data=df)
-plt.show()
+# plt.show()
 
 # Separate independent and dependent variables
 X = df[["TV", "radio", "newspaper"]]
@@ -187,6 +187,9 @@ X_test_scaled = scaler.transform(X_test)
 lin_model = LinearRegression()
 lin_model.fit(X_train_scaled, y_train)
 y_lin_pred = lin_model.predict(X_test_scaled)
+
+# Stampa dei coefficienti
+print("Coefficienti del modello:",lin_model.coef_ ) #Feature 1: tv, feature 2: radio, feature 3: newspaper
 
 # Evaluate Linear Regression
 rmse_lin = math.sqrt(mean_squared_error(y_test, y_lin_pred))
@@ -242,13 +245,13 @@ axes[2].legend()
 
 # show the plot
 plt.tight_layout()
-plt.show()
+# plt.show()
 
 # Correlation Matrix
 plt.figure(figsize=(8, 6))
 sns.heatmap(df.corr(), annot=True, cmap="coolwarm", fmt=".2f")
 plt.title("Correlation Matrix")
-plt.show()
+# plt.show()
 
 
 # Load the CSV file
@@ -267,12 +270,41 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
+
 # Initialize lists to store RMSE errors
 train_rmse_errors = []
 test_rmse_errors = []
 
+degree = 9
+
+poly_converter = PolynomialFeatures(degree=2, include_bias=False)
+X_train_poly = poly_converter.fit_transform(X_train_scaled)  # Apply to training data
+X_test_poly = poly_converter.transform(X_test_scaled)       # Apply to test data
+
+# Train the model on the polynomial training data
+model = LinearRegression(fit_intercept=True)
+model.fit(X_train_poly, y_train)  # Fit the model using the training data
+
+# Predict on the training and test data
+train_pred = model.predict(X_train_poly)
+test_pred = model.predict(X_test_poly)
+
+# Calculate the RMSE errors
+train_rmse = np.sqrt(mean_squared_error(y_train, train_pred))
+test_rmse = np.sqrt(mean_squared_error(y_test, test_pred))
+
+# Append RMSE errors to the lists
+train_rmse_errors.append(train_rmse)
+test_rmse_errors.append(test_rmse)
+
+# Stampa dei coefficienti
+print("Coefficienti del modello:",model.coef_ ) #Feature 1: tv, feature 2: radio, feature 3: newspaper
+                                                #Feature 1^2: tv^2, feature 2^2: radio^2, feature 3^2: newspaper^2
+                                                #Feature 1 x feature 2: tv x radio, feature 1 x feature 3: tv x newspaper,
+                                                #feature 2 x feature 3: radio x newspaper
+
 # Loop through degrees 1 to 5 for polynomial regression
-for d in range(1, 6):  # Loop from degree 1 to 5
+for d in range(1, degree):  # Loop from degree 1 to 5
     # Create polynomial features for degree 'd'
     poly_converter = PolynomialFeatures(degree=d, include_bias=False)
     X_train_poly = poly_converter.fit_transform(X_train_scaled)  # Apply to training data
@@ -296,20 +328,16 @@ for d in range(1, 6):  # Loop from degree 1 to 5
 
 # Plotting RMSE for different polynomial degrees
 plt.figure(figsize=(8, 6))
-plt.plot(range(1, 6), train_rmse_errors, label='TRAIN', marker='o')
-plt.plot(range(1, 6), test_rmse_errors, label='TEST', marker='o')
+plt.plot(range(1, degree + 1), train_rmse_errors, label='TRAIN', marker='o')
+plt.plot(range(1, degree + 1), test_rmse_errors, label='TEST', marker='o')
 plt.xlabel("Polynomial Complexity")
 plt.ylabel("RMSE")
 plt.title("RMSE vs Polynomial Complexity")
 plt.legend()
 plt.grid(True)
-plt.show()
+# plt.show()
 
 # # Dopo aver addestrato il modello
 # model.fit(X_train_poly, y_train)
 
 # Accesso ai coefficienti
-model.coef_
-
-# Stampa dei coefficienti
-print("Coefficienti del modello:",model.coef_ )
