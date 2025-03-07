@@ -1,4 +1,4 @@
-Azienda,Città,Dipendenti
+Name,Office,N_employees
 Ferrari,Maranello,4500
 Fiat,Torino,50000
 Lamborghini,Sant’Agata Bolognese,2000
@@ -24,5 +24,3 @@ Armani,Milano,7000
 Bulgari,Roma,4000
 Brembo,Curno,12000
 De’Longhi,Treviso,10000
-
-

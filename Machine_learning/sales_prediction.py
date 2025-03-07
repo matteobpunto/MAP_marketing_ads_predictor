@@ -8,8 +8,10 @@ from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics  import mean_absolute_error
 import math
+import joblib
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-file_path = "file_clear.csv"
+file_path = "../data_cleaning/file_clear.csv"
 df = pd.read_csv(file_path)
 
 X = df[["TV", "radio", "newspaper"]]
@@ -33,7 +35,7 @@ poly_model.fit(X_train_poly, y_train)
 
 def predict_sales(tv, radio, newspaper):
     # Create a numpy array with the input values
-    input_data = np.array([[tv, radio, newspaper]])
+    input_data = pd.DataFrame([[tv, radio, newspaper]], columns=["TV", "radio", "newspaper"])
     input_data_scaled = scaler.transform(input_data)
 
     lin_pred = lin_model.predict(input_data_scaled)
@@ -42,12 +44,25 @@ def predict_sales(tv, radio, newspaper):
 
     return lin_pred[0], poly_pred[0]
 
-print("Inserisci i valori per TV, Radio e Newspaper per generare le previsioni di vendite.")
-tv = float(input("Valore per TV: "))
-radio = float(input("Valore per Radio: "))
-newspaper = float(input("Valore per Newspaper: "))
 
-lin_pred, poly_pred = predict_sales(tv, radio, newspaper)
+joblib.dump(lin_model, 'linear_regression_model.pkl')
+joblib.dump(scaler, 'scaler.pkl')
+joblib.dump(poly_model, 'polynomial_regression_model.pkl')
+joblib.dump(poly, 'polynomial_transformer.pkl')
 
-print(f"\nPrevisione di vendite (Regressione Lineare): {lin_pred:.2f}")
-print(f"Previsione di vendite (Regressione Polinomiale): {poly_pred:.2f}")
+lin_test_pred = lin_model.predict(X_test_scaled)
+poly_test_pred = poly_model.predict(X_test_poly)
+
+#=== LINEAR MODEL METRICS ===
+print("\n--- Linear Regression Metrics ---")
+print(f"R² (accuracy): {r2_score(y_test, lin_test_pred):.4f}")
+print(f"MAE: {mean_absolute_error(y_test, lin_test_pred):.4f}")
+print(f"MSE: {mean_squared_error(y_test, lin_test_pred):.4f}")
+print(f"RMSE: {math.sqrt(mean_squared_error(y_test, lin_test_pred)):.4f}")
+
+#=== POLYNOMIAL MODEL METRICS ===
+print("\n--- Polynomial Regression Metrics ---")
+print(f"R² (accuracy): {r2_score(y_test, poly_test_pred):.4f}")
+print(f"MAE: {mean_absolute_error(y_test, poly_test_pred):.4f}")
+print(f"MSE: {mean_squared_error(y_test, poly_test_pred):.4f}")
+print(f"RMSE: {math.sqrt(mean_squared_error(y_test, poly_test_pred)):.4f}")

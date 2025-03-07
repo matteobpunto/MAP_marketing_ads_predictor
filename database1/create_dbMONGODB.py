@@ -11,7 +11,7 @@ database = myclient["marketing_adv_db"]
 collection_name = database["marketing_adv"]
 
 # Open and read the CSV file
-with open('Advertising_clear.csv', "r", encoding='utf-8') as f:
+with open('../Advertising_clear.csv', "r", encoding='utf-8') as f:
     reader = csv.DictReader(f)
     marketing_adv = []  # List to store cleaned data
 

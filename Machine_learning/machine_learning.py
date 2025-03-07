@@ -14,7 +14,7 @@ from joblib import dump, load
 # --- END OF IMPORT SECTION --
 
 # Load the CSV file
-file_path = "Advertising_clear.csv"
+file_path = "../Advertising_clear.csv"
 df = pd.read_csv(file_path)
 
 # Sales Distribution
@@ -46,8 +46,8 @@ lin_model = LinearRegression()
 lin_model.fit(X_train_scaled, y_train)
 y_lin_pred = lin_model.predict(X_test_scaled)
 
-# Stampa dei coefficienti
-print("Coefficienti del modello:",lin_model.coef_ ) #Feature 1: tv, feature 2: radio, feature 3: newspaper
+# Print coefficients
+print("Model coefficients:",lin_model.coef_ ) #Feature 1: tv, feature 2: radio, feature 3: newspaper
 
 # Evaluate Linear Regression
 rmse_lin = math.sqrt(mean_squared_error(y_test, y_lin_pred))
@@ -113,7 +113,7 @@ plt.show()
 
 
 # Load the CSV file
-file_path = "file_clear.csv"
+file_path = "../data_cleaning/file_clear.csv"
 df = pd.read_csv(file_path)
 
 # Separate independent and dependent variables
@@ -196,9 +196,5 @@ plt.grid(True)
 plt.show()
 
 
-# Salva il modello addestrato in un file .pkl
-# with open('regression_model.pkl', 'wb') as file:
-#     pickle.dump((scaler, model), file)
-#     print("Modello salvato come 'regression_model.pkl'")
 
 
