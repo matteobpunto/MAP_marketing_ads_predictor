@@ -29,7 +29,7 @@ def remove_rows_with_empty_values(df: pd.DataFrame, output_file: str) -> tuple[i
 
 # --- MAIN CODE ---
 # Replace with the path to your CSV file
-file_path = "../Advertising_modified.csv"
+file_path = "Advertising_modified.csv"
 df = pd.read_csv(file_path, dtype=str)
 
 empty_values, empty_percentage, total_rows = count_empty_values(df)
