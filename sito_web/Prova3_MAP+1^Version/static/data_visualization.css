@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 /* Full-page black background */
@@ -11,6 +10,7 @@ body, html {
     height: 100%;
     background-color: black;
     color: white;
+    font-family: Arial, sans-serif;
 }
 
 /* Section Styling */
@@ -53,7 +53,6 @@ body, html {
 .text-container h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    color: #EE544D; /* Updated title color */
 }
 
 .text-container p {
@@ -71,30 +70,16 @@ body, html {
 
 .metric-box {
     flex: 1;
-    background-color: rgba(51, 51, 51, 0.8); /* Dark gray with 80% opacity */
+    background-color: #333;
     padding: 15px;
     border-radius: 10px;
     text-align: center;
 }
 
-/* TV Title */
-.metric-box:nth-child(1) .metric-title {
-    color: blue; /* Blue title */
-}
-
-/* Radio Title */
-.metric-box:nth-child(2) .metric-title {
-    color: green; /* Green title */
-}
-
-/* Newspaper Title */
-.metric-box:nth-child(3) .metric-title {
-    color: yellow; /* Yellow title */
-}
-
 .metric-title {
     font-size: 1.1rem;
     margin-bottom: 5px;
+    color: #ffcc00; /* Yellow color for titles */
 }
 
 .metric-value {
@@ -104,7 +89,7 @@ body, html {
 
 /* Sales Box */
 .sales-box {
-    background-color: rgba(68, 68, 68, 0.8); /* Slightly darker gray with 80% opacity */
+    background-color: #444;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -113,7 +98,7 @@ body, html {
 .sales-title {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: red; /* Red title */
+    color: #ffcc00; /* Yellow color for title */
 }
 
 .sales-value {
@@ -127,5 +112,5 @@ body, html {
     font-size: 3rem;
     margin-bottom: 20px;
     text-align: center;
-    color: #EE544D; /* Updated title color */
+    color: #ffcc00; /* Yellow color for emphasis */
 }
