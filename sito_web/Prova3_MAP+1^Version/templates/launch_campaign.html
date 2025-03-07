@@ -4,25 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Launch Campaign</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='launch_campaign.css') }}">
 </head>
 <body>
 
     <!-- Sezione Form -->
     <section class="campaign-section">
-        <h2>Launch your <span class="highlight">Campaign</span></h2>
+        <h2 id="titolo_sezione_lancia_campagna">Launch your Campaign</h2>
 
-        <form action="{{ url_for('submit') }}" method="POST" class="campaign-form">
+        <form action="/launch_campaign" method="POST" class="campaign-form">
             <!-- Selezione azienda -->
             <div class="form-group">
-                <label for="company">
-                    <img src="{{ url_for('static', filename='company-icon.png') }}" alt="Company Icon">
+                <label for="company" id="your_company">
+                    <img src="/static/images/launch_campaign/office-building.png" alt="Company Icon">
                     Your Company:
                 </label>
                 <select id="company" name="company">
-                    <option value="company1">Company 1</option>
-                    <option value="company2">Company 2</option>
-                    <option value="company3">Company 3</option>
+                    <option value="ferrari">Ferrari</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="lamborghini">Lamborghini</option>
+                    <option value="pirelli">Pirelli</option>
+                    <option value="luxottica">Luxottica</option>
+                    <option value="barilla">Barilla</option>
+                    <option value="lavazza">Lavazza</option>
+                    <option value="parmalat">Parmalat</option>
+                    <option value="eni">Eni</option>
+                    <option value="enel">Enel</option>
+                    <option value="tim">TIM</option>
+                    <option value="generali">Generali</option>
+                    <option value="ferrero">Ferrero</option>
+                    <option value="campari">Campari</option>
+                    <option value="ducati">Ducati</option>
+                    <option value="benetton">Benetton</option>
+                    <option value="alitalia">Alitalia</option>
+                    <option value="illy">Illy</option>
+                    <option value="versace">Versace</option>
+                    <option value="prada">Prada</option>
+                    <option value="gucci">Gucci</option>
+                    <option value="armani">Armani</option>
+                    <option value="bulgari">Bulgari</option>
+                    <option value="brembo">Brembo</option>
+                    <option value="delonghi">De’Longhi</option>
                 </select>
             </div>
 
@@ -46,9 +68,11 @@
             </div>
 
             <!-- Bottone submit -->
-            <button type="submit" class="launch-btn">LAUNCH 🚀</button>
+            <button type="button" class="launch-btn">LAUNCH 🚀</button>
         </form>
     </section>
+<!-- Questo è la parte di script e animazioni -->
+    <script src="{{ url_for('static', filename='script_launch_campaign.js') }}"></script>
 
 </body>
 </html>

@@ -1,0 +1,99 @@
+/*per importare il font DM Serif Text */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+/*per importare il font Emblema One */
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.campaign-section {
+    padding: 50px 20px;
+}
+#titolo_sezione_lancia_campagna {
+    color: #ED746F;
+    font-size: 75px;
+    font-weight: bold;
+    font-family: 'Emblema One', cursive;
+    margin-bottom: 100px;
+}
+
+.campaign-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Serif Text', serif;
+    margin-bottom: 15px;
+}
+
+#your_company {
+    margin-bottom: 20px;
+    font-family: 'DM Serif Text', serif;
+    display: flex;
+    align-items: flex-end;
+}
+
+#your_company img {
+    width: 35px;
+    height: 35px;
+}
+
+
+select, input {
+    background-color: #a9a9a9;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 16px;
+    width: 200px;
+    text-align: center;
+}
+
+.invest-title {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Emblema One', cursive;
+    color: #ED746F;
+}
+
+.investments {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.launch-btn {
+    background-color: #ED746F;
+    font-family: 'Emblema One', cursive;
+    margin-top: 50px;
+    color: white;
+    font-size: 20px;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.launch-btn:hover {
+    transform: scale(1.1);
+}
