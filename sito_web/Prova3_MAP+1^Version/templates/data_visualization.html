@@ -14,7 +14,6 @@
             </div>
             <div class="text-container">
                 <h1>{{ name }}</h1>
-                <p>Office: {{ office }}</p>
 
                 <!-- Boxes for TV, Radio, and Newspaper -->
                 <div class="metrics-container">
@@ -35,7 +34,7 @@
                 <!-- Box for Total Sales -->
                 <div class="sales-box">
                     <p class="sales-title">Total Sales</p>
-                    <p class="sales-value">{{ "%.2f" | format(total_sales) }}</p> <!-- No "k" here -->
+                    <p class="sales-value">{{ "%.2f" | format(total_sales) }}</p>
                 </div>
             </div>
         </div>

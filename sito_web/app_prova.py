@@ -1,13 +1,12 @@
-from flask import Flask, render_template, request
-import mysql
 import mysql.connector
-import csv
-from mysql.connector import Error
 from flask import Flask, render_template
 import matplotlib.pyplot as plt
 import io
 import base64
 
+app = Flask(__name__)
+
+# Database connection configuration
 def get_db_connection():
     return mysql.connector.connect(
         host="localhost",
@@ -16,6 +15,7 @@ def get_db_connection():
         database="marketing_adv"
     )
 
+# Function to retrieve data from the database
 def fetch_data(query):
     try:
         connection = get_db_connection()
@@ -31,28 +31,22 @@ def fetch_data(query):
     finally:
         if connection.is_connected():
             connection.close()
-app = Flask(__name__)
+
+# Query to fetch data
 
 
-@app.route("/")
-def landing_page():
-
-    return render_template("index.html")
-
-
-@app.route("/company/<int:id>")
-@app.route("/company/<int:id>")
+# Route to display the histogram for a specific company
 @app.route("/company/<int:id>")
 def index(id):
     query = """
-    SELECT company.company_id, company.name, 
+    SELECT company.company_id, company.name, company.office, 
            SUM(marketing.tv) AS total_tv, 
            SUM(marketing.radio) AS total_radio, 
            SUM(marketing.newspaper) AS total_newspaper, 
            SUM(marketing.sales) AS total_sales 
     FROM company 
     INNER JOIN marketing ON company.company_id = marketing.company_id 
-    GROUP BY company.company_id, company.name 
+    GROUP BY company.company_id, company.name, company.office 
     ORDER BY company.company_id ASC
     """
 
@@ -79,8 +73,8 @@ def index(id):
 
     # Create the histogram
     plt.figure(figsize=(8, 4))
-    plt.bar(labels, values, color=['blue', 'green', 'orange'])
-    plt.title(f"Marketing Expenses for {company_data['name']}")
+    plt.bar(labels, values, color=['blue', 'green', 'orange', 'red'])
+    plt.title(f"Marketing Expenses and Sales for {company_data['name']}")
     plt.xlabel('Category')
     plt.ylabel('Amount')
 
@@ -90,15 +84,14 @@ def index(id):
     img.seek(0)
     plot_url = base64.b64encode(img.getvalue()).decode()
 
-    # Pass the plot, company data, and totals to the HTML template
+    # Pass the plot, company data, and TV sum to the HTML template
     return render_template(
-        "data_visualization.html",
+        "index.html",
         plot_url=plot_url,
         name=company_data['name'],
-        total_tv=company_data['total_tv'],
-        total_radio=company_data['total_radio'],
-        total_newspaper=company_data['total_newspaper'],
-        total_sales=company_data['total_sales']
+        office=company_data['office'],
+        total_tv=company_data['total_tv']  # Pass the sum of TV values
     )
+
 if __name__ == "__main__":
     app.run(debug=True)
