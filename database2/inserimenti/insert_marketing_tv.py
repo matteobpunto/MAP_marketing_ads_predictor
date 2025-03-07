@@ -2,7 +2,7 @@
 
 import mysql.connector
 import random
-from marketing_ads_predictor.database2.insert_type import recupera_dati_lista_int
+
 
 # connecting to the mySQL server
 conn = mysql.connector.connect(
