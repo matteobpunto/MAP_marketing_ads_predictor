@@ -1,8 +1,26 @@
 # Importing the libraries we'll use
-
 import mysql.connector
 import random
-from marketing_ads_predictor.database2.insert_type import recover_list_data_int
+from mysql.connector import Error
+
+def recover_list_data_int(query):
+    try:
+        connection = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="",
+            database="marketing_adv"
+        )
+        cursor = connection.cursor()
+        cursor.execute(query)
+        result = [elem[0] for elem in cursor.fetchall()]
+        return result[0] if result else None
+    except Error as e:
+        print(f"Error while executing the query: {e}")
+        return None
+    finally:
+        if connection.is_connected():
+            connection.close()
 
 # Connecting to the MySQL server
 conn = mysql.connector.connect(
