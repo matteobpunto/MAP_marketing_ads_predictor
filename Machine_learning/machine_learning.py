@@ -14,7 +14,7 @@ from joblib import dump, load
 # --- END OF IMPORT SECTION --
 
 # Load the CSV file
-file_path = "../Advertising_clear.csv"
+file_path = "file_clear.csv"
 df = pd.read_csv(file_path)
 
 # Sales Distribution

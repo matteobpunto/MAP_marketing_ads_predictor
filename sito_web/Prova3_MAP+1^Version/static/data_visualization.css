@@ -1,0 +1,116 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full-page black background */
+body, html {
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Section Styling */
+.total-investment-company {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Container for image and text */
+.container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Image Container */
+.image-container {
+    flex: 1;
+    max-width: 50%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Text Container */
+.text-container {
+    flex: 1;
+    max-width: 50%;
+}
+
+.text-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.text-container p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Metrics Container (TV, Radio, Newspaper) */
+.metrics-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.metric-box {
+    flex: 1;
+    background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.metric-title {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #ffcc00; /* Yellow color for titles */
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Sales Box */
+.sales-box {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.sales-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffcc00; /* Yellow color for title */
+}
+
+.sales-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Section Title */
+.section-title {
+    font-family: 'Emblema One', cursive;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffcc00; /* Yellow color for emphasis */
+}

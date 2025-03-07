@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcola Previsioni</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='prova.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Calcola Previsioni di Vendita</h1>
+        <form action="/calcola_previsioni" method="POST" class="campaign-form">
+            <!-- Selezione azienda -->
+            <div class="form-group">
+                <label for="company">Seleziona Azienda:</label>
+                <select id="company" name="company" required>
+                    <option value="company1">Company 1</option>
+                    <option value="company2">Company 2</option>
+                    <option value="company3">Company 3</option>
+                </select>
+            </div>
+
+            <!-- Campo per TV -->
+            <div class="form-group">
+                <label for="tv">Investimento in TV:</label>
+                <input type="number" id="tv" name="tv" step="0.01" required>
+            </div>
+
+            <!-- Campo per Radio -->
+            <div class="form-group">
+                <label for="radio">Investimento in Radio:</label>
+                <input type="number" id="radio" name="radio" step="0.01" required>
+            </div>
+
+            <!-- Campo per Giornali -->
+            <div class="form-group">
+                <label for="newspaper">Investimento in Giornali:</label>
+                <input type="number" id="newspaper" name="newspaper" step="0.01" required>
+            </div>
+
+            <!-- Pulsante di invio -->
+            <button type="submit">Calcola Previsioni</button>
+        </form>
+
+        <!-- Risultati delle previsioni -->
+        {% if lin_pred and poly_pred %}
+        <div class="results">
+            <h2>Risultati delle Previsioni per {{ company }}:</h2>
+            <p>Investimento in TV: {{ tv }}</p>
+            <p>Investimento in Radio: {{ radio }}</p>
+            <p>Investimento in Giornali: {{ newspaper }}</p>
+            <p>Previsione Vendite (Regressione Lineare): {{ lin_pred }}</p>
+            <p>Previsione Vendite (Regressione Polinomiale): {{ poly_pred }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

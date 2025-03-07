@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='data_visualization.css') }}">
+</head>
+<body>
+    <section class="total-investment-company">
+        <h2 class="section-title">These are your data</h2>
+        <div class="container">
+            <div class="image-container">
+                <img src="data:image/png;base64,{{ plot_url }}" alt="Marketing Expenses Histogram">
+            </div>
+            <div class="text-container">
+                <h1>{{ name }}</h1>
+
+                <!-- Boxes for TV, Radio, and Newspaper -->
+                <div class="metrics-container">
+                    <div class="metric-box">
+                        <p class="metric-title">Total TV</p>
+                        <p class="metric-value">{{ "%.2fk" | format(total_tv) }}</p>
+                    </div>
+                    <div class="metric-box">
+                        <p class="metric-title">Total Radio</p>
+                        <p class="metric-value">{{ "%.2fk" | format(total_radio) }}</p>
+                    </div>
+                    <div class="metric-box">
+                        <p class="metric-title">Total Newspaper</p>
+                        <p class="metric-value">{{ "%.2fk" | format(total_newspaper) }}</p>
+                    </div>
+                </div>
+
+                <!-- Box for Total Sales -->
+                <div class="sales-box">
+                    <p class="sales-title">Total Sales</p>
+                    <p class="sales-value">{{ "%.2f" | format(total_sales) }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
