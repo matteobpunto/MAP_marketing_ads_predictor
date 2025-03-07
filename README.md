@@ -33,24 +33,24 @@ python main.py
 MAP is a standalone application built using Python as program language, one of the best tool for its flexibility, spreadability and simplicity as well.\
 Using MAP you will be able to show how your investments in advertising will be perceived by your audience according to previous results.
 
-## Data Cleaning
+### Data Cleaning
 
 A Python script for data cleaning is available in the 'data_cleaning' directory. This script removes null values
 from the dataset, ensuring data consistency before analysis and model training
 
-## Machine Learning
+### Machine Learning
 
 We implemented a regression-based Machine Learning model to predict sales outcomes based on advertising investments.
 The model was trained using [scikit-learn](https://scikit-learn.org/stable/)
 
-## Power BI
+### Power BI
 
 We developed a **Power BI dashboard** to provide interactive data visualization and insights. The dashboard includes:
 - Sales trend analysis
 - Correlation between investments and revenue
 - Predictive analysis based on the trained Machine Learning model
 
-## Website development
+### Website development
 
 A **web-based interface** was created to make MAP more accessible and user-friendly. The website was built
 using **Flask (backend) and HTML/CSS (frontend)**, allowing users to:
