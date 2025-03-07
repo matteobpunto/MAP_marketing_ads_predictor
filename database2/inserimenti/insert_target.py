@@ -26,7 +26,7 @@ cursor.executemany(query, values)
 # Commit the changes to the database
 conn.commit()
 
-print("Dati inseriti correttamente!")
+print("Data entered correctly!")
 
 # Close the cursor and connection
 cursor.close()
