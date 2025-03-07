@@ -14,7 +14,7 @@ cursor = conn.cursor()
 cursor.execute("USE marketing_adv")
 
 # Open the CSV file and read its contents
-with open('Italian_companies.csv', encoding='utf-8') as f:
+with open('italian_companies.csv', encoding='utf-8') as f:
     reader = csv.reader(f, delimiter=',')
     f.readline()  # Skip the header row
 
