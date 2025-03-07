@@ -1,0 +1,140 @@
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* SEZIONE HERO BANNER */
+/* Stile dell'hero */
+.hero {
+    background: url("/static/images/hero banner.png") no-repeat center center/cover;
+    background-attachment: fixed; /* Fissa l'immagine di sfondo */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Contenitore del testo Generale della sezione Hero */
+.text-changer {
+   height: 40px;
+   display: block;
+   flex-direction: column;
+   margin-bottom: 320px;
+
+}
+
+.roles-container {
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+}
+.role {
+    display:block;
+    font-size: 80px;
+    height: 100%;
+    color: #ed746f;
+    animation: role-change 6s infinite;
+}
+
+@keyframes role-change {
+  /* Prima parola */
+  0%   { transform: translateY(0); }
+  20%  { transform: translateY(0); }
+
+  /* Seconda parola */
+  33%  { transform: translateY(-105%); }
+  53%  { transform: translateY(-100%); }
+
+  /* Terza parola */
+  66%  { transform: translateY(-205%); }
+  86%  { transform: translateY(-200%); }
+
+  /* Torna alla prima parola */
+  100% { transform: translateY(-300%); }
+}
+
+
+/* SEZIONE LANCIA CAMPAGNA */
+
+/* div principale della sezione, che gestisce lo sfondo */
+.lancia_campagna {
+    background-color: #000;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+/* h2 del div principale */
+.lancia_campagna h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Contenitore principale */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Immagine Div 1/2*/
+.image-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: center;
+}
+/* Immagine */
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Div Testo e bottone 2/2*/
+.text-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: left;
+    padding: 20px;
+    font-size: 20px;
+}
+/* Stile del bottone */
+.cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #EE544D;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* stile per il bottone hover */
+.cta-button:hover {
+    background-color: #F02219;
+}
+
+
+/* Responsività */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-container {
+        text-align: center;
+    }
+}
