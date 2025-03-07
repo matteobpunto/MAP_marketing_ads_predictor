@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics  import mean_absolute_error
 import math
 
-file_path = "file_clear.csv"
+file_path = "../data_cleaning/file_clear.csv"
 df = pd.read_csv(file_path)
 
 X = df[["TV", "radio", "newspaper"]]
