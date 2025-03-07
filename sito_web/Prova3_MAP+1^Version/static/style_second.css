@@ -1,0 +1,351 @@
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/*per importare il font DM Serif Text */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+/*per importare il font Emblema One */
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+
+/* Stile della sezione */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("/static/images/hero_banner.png") no-repeat center center/cover;
+    background-attachment: fixed; /* Fissa l'immagine di sfondo */
+}
+
+/* Contenitore principale */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center;
+    height: 100vh;
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Contenitore dell'immagine e del testo */
+.hero-content {
+    display: flex;
+    justify-content: center; /* Centra verticalmente */
+    width: 100%;
+    gap: 5px; /* Spazio tra immagine e testo */
+}
+
+/* Immagine a sinistra */
+.hero-image img {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.roles-container {
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 60px;
+    text-align: left;
+
+}
+.role {
+    display:block;
+    font-size: 50px;
+    font-weight: 600;
+    font-family: 'DM Serif Text', serif;
+    height: 100%;
+    color: #ed746f;
+    animation: role-change 6s infinite;
+}
+
+@keyframes role-change {
+  /* Prima parola */
+  0%   { transform: translateY(0); }
+  20%  { transform: translateY(0); }
+
+  /* Seconda parola */
+  33%  { transform: translateY(-102%); }
+  53%  { transform: translateY(-100%); }
+
+  /* Terza parola */
+  66%  { transform: translateY(-202%); }
+  86%  { transform: translateY(-200%); }
+
+  /* Torna alla prima parola */
+  100% { transform: translateY(-300%); }
+}
+
+/* Titolo allineato al centro */
+.hero-title h2 {
+    font-size: 32px;
+    font-weight: 300;
+    font-family: 'DM Serif Text', serif;
+    letter-spacing: 1.5px;
+    margin-top: 20px;
+    color: #DED4D4;
+}
+
+/* Contenitore bottoni */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+/* Stile del primo bottone */
+.btn-primary {
+    padding: 8px 20px;
+    background-color: #ed746f;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Stile del secondo bottone trasparente */
+.btn-transparent {
+    padding: 8px 20px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Icona freccia accanto al bottone */
+.arrow {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+
+
+/* SEZIONE INTRODUCTION MAP */
+
+.introduction {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altezza della sezione */
+    text-align: center;
+    background-color: #000000; /* Colore di sfondo chiaro */
+    padding: 20px;
+}
+
+/* Stile per l'immagine */
+.intro-image img {
+    width: 50%; /* Regola la dimensione dell'immagine */
+    height: auto;
+    margin-bottom: 50px;
+    margin-top: -20px;
+}
+
+/* Stile per il paragrafo */
+#intro-map {
+    font-family: 'DM Serif Text', serif;
+    font-size: 35px;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    color: #DED4D4;
+    max-width: 600px; /* Limita la larghezza del testo */
+}
+
+/* Stato iniziale: le righe sono spostate verso il basso e trasparenti */
+#intro-map div {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease, transform 2s ease;
+}
+
+/* Stato "visible": le righe si posizionano normalmente e diventano visibili */
+#intro-map.visible div {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay per ogni riga */
+#intro-map.visible div:nth-child(1) { transition-delay: 0.2s; }
+#intro-map.visible div:nth-child(2) { transition-delay: 0.4s; }
+#intro-map.visible div:nth-child(3) { transition-delay: 0.6s; }
+#intro-map.visible div:nth-child(4) { transition-delay: 0.8s; }
+#intro-map.visible div:nth-child(5) { transition-delay: 1s; }
+#intro-map.visible div:nth-child(6) { transition-delay: 1.2s; }
+
+
+/* Contenitore della freccia */
+.scroll-arrow {
+    position: absolute;
+    bottom: 5%; /* Assicura che sia visibile */
+    width: 30px;
+    height: 30px;
+    border-left: 4px solid #ed746f;
+    border-bottom: 4px solid #ed746f;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+/* Animazione della freccia */
+@keyframes bounce {
+  0% {
+    transform: translateY(0) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-45deg);
+  }
+}
+
+/* SEZIONE CHOOSE CAMPAIGN */
+.marketing-section {
+    background-color: black;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+    height: 100vh; /* Altezza della sezione */
+}
+
+.header-image img {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ✅ Centra il contenuto interno */
+    justify-content: center; /* ✅ (Facoltativo) Se vuoi anche centratura verticale */
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.mapping_simple {
+    font-size: 30px;
+    margin-top: 30px;
+    font-family: 'DM Serif Text', serif;
+}
+
+#choose_campaign {
+    font-size: 45px;
+    margin-top: 30px;
+    font-family: 'DM Serif Text', serif;
+}
+
+.marketing-options {
+    display: flex;
+    justify-content: center;
+    gap: 75px; /* Spazio tra le immagini */
+    margin-top: 75px;
+}
+
+.option {
+    text-align: center;
+}
+
+.option img {
+    width: 250px; /* Modifica secondo le dimensioni desiderate */
+    height: 250px;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.option img:hover {
+    transform: scale(1.1);
+}
+
+.option p {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+
+
+
+/* SEZIONE LANCIA CAMPAGNA */
+
+/* div principale della sezione, che gestisce lo sfondo */
+.lancia_campagna {
+    background-color: #000;
+    color: white;
+    padding: 100px 50px;
+    text-align: center;
+}
+/* h2 del div principale */
+.lancia_campagna h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Contenitore principale */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Immagine Div 1/2*/
+.image-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: center;
+}
+/* Immagine */
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Stile del bottone */
+.cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #EE544D;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* stile per il bottone hover */
+.cta-button:hover {
+    background-color: #F02219;
+}
+
+
+/* Responsività */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-container {
+        text-align: center;
+    }
+}

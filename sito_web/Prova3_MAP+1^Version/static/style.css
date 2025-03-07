@@ -29,9 +29,7 @@
    margin-bottom: 320px;
 
 }
-#intro-text{
-    font-size: 70px;
-}
+
 .roles-container {
     height: 80px;
     overflow: hidden;
@@ -63,7 +61,7 @@
 }
 
 
-/* SEZIONE HERO BANNER */
+/* SEZIONE LANCIA CAMPAGNA */
 
 /* div principale della sezione, che gestisce lo sfondo */
 .lancia_campagna {

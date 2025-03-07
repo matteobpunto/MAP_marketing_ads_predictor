@@ -3,7 +3,7 @@ import mysql.connector
 import random
 from mysql.connector import Error
 
-def recupera_dati_lista_int(query):
+def recover_list_data_int(query):
     try:
         connection = mysql.connector.connect(
             host="localhost",
@@ -16,13 +16,13 @@ def recupera_dati_lista_int(query):
         result = [elem[0] for elem in cursor.fetchall()]
         return result[0] if result else None
     except Error as e:
-        print(f"Errore durante l'esecuzione della query: {e}")
+        print(f"Error while executing the query: {e}")
         return None
     finally:
         if connection.is_connected():
             connection.close()
 
-# Connessione al database
+# Database connection
 conn = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -32,21 +32,21 @@ conn = mysql.connector.connect(
 
 cursor = conn.cursor()
 
-lista_tipi = ["spot", "inspot", "teleshopping", "videoclip", "trailer"]
-colonne = recupera_dati_lista_int("SELECT COUNT(*) FROM marketing")
+type_list = ["spot", "inspot", "teleshopping", "videoclip", "trailer"]
+columns = recover_list_data_int("SELECT COUNT(*) FROM marketing")
 
-if colonne is None:
-    print("Errore nel recupero dei dati.")
+if columns is None:
+    print("Error retrieving data.")
 else:
-    for _ in range(189):  # Loop per inserire 189 righe
-        # Genera valori booleani casuali per ogni colonna
-        valori_booleani = [random.choice([True, False]) for _ in lista_tipi]
+    for _ in range(189):  # Loop to insert 189 rows
+        # Generate random boolean values for each column
+        boolean_values = [random.choice([True, False]) for _ in type_list]
 
-        # Prepara la query SQL
+        # Prepare the SQL query
         query = "INSERT INTO `type` (`spot`, `inspot`, `teleshopping`, `videoclip`, `trailer`) VALUES (%s, %s, %s, %s, %s)"
 
-        # Esegui l'inserimento con i valori casuali
-        cursor.execute(query, valori_booleani)
+        # Execute the insertion with random values
+        cursor.execute(query, boolean_values)
         conn.commit()
         print("Data inserted successfully!")
 

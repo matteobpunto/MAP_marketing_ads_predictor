@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_second.css') }}">
+</head>
+<body>
+
+    <section class="hero">
+    <!-- Contenitore principale -->
+        <div class="hero-container">
+            <!-- Contenitore con immagine a sinistra e testo a destra -->
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="/static/images/map_logo_white.png" alt="Marketing Image">
+                </div>
+                <div class="roles-container">
+                    <span class="role">Lancia</span>
+                    <span class="role">Analizza</span>
+                    <span class="role">Ottimizza</span>
+                    <span class="role">Lancia</span>
+                </div>
+            </div>
+            <!-- Titolo allineato al centro -->
+            <div class="hero-title">
+                <h2 id="intro-text">Sharpen your marketing idea.</h2>
+            </div>
+            <!-- Contenitore dei bottoni allineato al centro -->
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Scopri di più</button>
+                <button class="btn btn-transparent">
+                    Contattaci <span class="arrow">→</span>
+                </button>
+            </div>
+        </div>
+        <div class="scroll-arrow"></div>
+    </section>
+
+    <!-- Section of Introduction MAP -->
+    <section class="introduction">
+        <div class="intro-image">
+            <img src="/static/images/What_is_MAP.png" alt="What is MAP">
+        </div>
+            <div id="intro-map">
+                <div>MAP is a solution designed</div>
+                <div>for your advertising marketing.</div>
+                <div><br>Use our tool to make</div>
+                <div>predictions about your future</div>
+                <div>marketing investments.</div>
+                <div><br>No crystal ball, only data.</div>
+            </div>
+
+        <div class="scroll-arrow"></div>
+    </section>
+
+
+    <section class="marketing-section">
+        <!-- Immagine iniziale (se necessaria) -->
+        <div class="header-image">
+            <img src="{{ url_for('static', filename='images/How can I MAPping_.png') }}" alt="what is mapping">
+        </div>
+
+        <!-- Paragrafi centrati -->
+        <div class="text-container">
+            <p class="mapping_simple">MAPping is simple as that.</p>
+            <p class="mapping_simple">Choose your</p>
+            <p id="choose_campaign">CAMPAIGN'S CHANNEL</p>
+        </div>
+
+        <!-- Contenitore per le immagini -->
+        <div class="marketing-options">
+            <div class="option">
+                <img src="{{ url_for('static', filename='images/tv icon 3d sez _lancia_.png') }}" alt="Tv campaign">
+                <p>Tv</p>
+            </div>
+            <div class="option">
+                <img src="{{ url_for('static', filename='images/tv icon 3d sez _lancia_.png') }}" alt="Radio campaign">
+                <p>Radio</p>
+            </div>
+            <div class="option">
+                <img src="{{ url_for('static', filename='images/tv icon 3d sez _lancia_.png') }}" alt="Newspaper campaign">
+                <p>Newspaper</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Questo è la parte di script e animazioni -->
+    <script src="{{ url_for('static', filename='script_pr_3.js') }}"></script>
+
+</body>
+</html>

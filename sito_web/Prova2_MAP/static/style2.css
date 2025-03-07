@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    background: url("/static/images/sfondo hero.png") no-repeat center center/cover;
+    background-attachment: fixed; /* Fissa l'immagine di sfondo */
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Organizza gli elementi in colonna */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+#p_hero_banner {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    position: relative;
+    width: 90%; /* Puoi cambiare a 600px, 800px, 100%... */
+    max-width: 350px; /* Imposta una dimensione massima */
+    height: auto; /* Altezza automatica basata sull'immagine */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.lens {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    pointer-events: none;
+    display: none;
+    background: transparent;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Leggero effetto per simulare la lente */
+    mix-blend-mode: normal;
+}
+
+/* Rimuoviamo il blur solo nell'area della lente */
+.blurred-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: blur(4px); /* Sfocatura iniziale */
+    transition: filter 0.1s ease-out;
+}
+
+
+.button-container {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #ed746f;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #c65a56;
+}
