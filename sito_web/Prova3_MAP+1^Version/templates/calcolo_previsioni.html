@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcola Previsioni</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='calcolo_previsioni.css') }}">
+</head>
+<body>
+    <div class="total-investment-company">
+    <h1>Calcola Previsioni di Vendita</h1>
+    <div class="content-container">
+        <!-- Form -->
+        <div class="form-container">
+            <form action="/calcola_previsioni" method="POST" class="campaign-form">
+                <!-- Selezione azienda -->
+                <div class="form-group">
+                    <label for="company">Seleziona Azienda:</label>
+                    <select id="company" name="company" required>
+                        <option value="luxottica">Luxottica</option>
+                        <option value="barilla">Barilla</option>
+                        <option value="lavazza">Lavazza</option>
+                        <option value="parmalat">Parmalat</option>
+                        <option value="eni">Eni</option>
+                        <option value="enel">Enel</option>
+                        <option value="tim">TIM</option>
+                        <option value="generali">Generali</option>
+                        <option value="ferrero">Ferrero</option>
+                        <option value="campari">Campari</option>
+                        <option value="ducati">Ducati</option>
+                        <option value="benetton">Benetton</option>
+                        <option value="alitalia">Alitalia</option>
+                        <option value="illy">Illy</option>
+                        <option value="versace">Versace</option>
+                        <option value="prada">Prada</option>
+                        <option value="gucci">Gucci</option>
+                        <option value="armani">Armani</option>
+                        <option value="bulgari">Bulgari</option>
+                        <option value="brembo">Brembo</option>
+                        <option value="delonghi">De’Longhi</option>
+                    </select>
+                </div>
+
+                <!-- Campo per TV -->
+                <div class="form-group">
+                    <label for="tv">Investimento in TV:</label>
+                    <input type="number" id="tv" name="tv" step="0.01" required>
+                </div>
+
+                <!-- Campo per Radio -->
+                <div class="form-group">
+                    <label for="radio">Investimento in Radio:</label>
+                    <input type="number" id="radio" name="radio" step="0.01" required>
+                </div>
+
+                <!-- Campo per Giornali -->
+                <div class="form-group">
+                    <label for="newspaper">Investimento in Giornali:</label>
+                    <input type="number" id="newspaper" name="newspaper" step="0.01" required>
+                </div>
+
+                <!-- Pulsante di invio -->
+                <button type="submit">Calcola Previsioni</button>
+            </form>
+        </div>
+
+        <!-- Right Section - Results -->
+        <div class="results-container">
+            <p id="intro_result">I tuoi risultati appariranno qui:</p>
+            {% if lin_pred and poly_pred %}
+            <div class="results">
+                <h3>I tuoi dati inseriti per {{ company }}:</h3>
+                <p>Investimento in TV: {{ tv }}</p>
+                <p>Investimento in Radio: {{ radio }}</p>
+                <p>Investimento in Giornali: {{ newspaper }}</p>
+
+                <!-- Nuova sezione per le previsioni -->
+                <div class="predictions">
+                    <h3>Previsioni di Vendita</h3>
+                    <p>Regressione Lineare: <strong>{{ lin_pred }}</strong></p>
+                    <p>Regressione Polinomiale: <strong>{{ poly_pred }}</strong></p>
+                </div>
+            </div>
+
+            <!-- Nuovo div che appare sotto i risultati -->
+            <div class="extra-message">
+                <p>Vuoi lanciare la tua campagna pubblicitaria?</p>
+                <button class="launch-btn">Launch Campaign 🚀</button>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -24,3 +24,8 @@ poly_pred = poly_model.predict(input_data_poly)
 print(f"\nSales Prediction (Linear Regression): {lin_pred[0]:.2f}")
 print(f"Sales Prediction (Polynomial Regression): {poly_pred[0]:.2f}")
 
+print("Coefficienti del modello:", lin_model.coef_)
+print("Vendite:", lin_model.intercept_)
+
+print("Coefficienti del modello:", poly_model.coef_)
+print("Vendite:", poly_model.intercept_)

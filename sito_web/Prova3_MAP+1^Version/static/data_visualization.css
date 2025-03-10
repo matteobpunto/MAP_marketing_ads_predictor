@@ -1,3 +1,8 @@
+/*per importare il font DM Serif Text */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+/*per importare il font Emblema One */
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+
 /* General Reset */
 * {
     margin: 0;
@@ -5,12 +10,12 @@
     box-sizing: border-box;
 }
 
+
 /* Full-page black background */
 body, html {
     height: 100%;
     background-color: black;
     color: white;
-    font-family: Arial, sans-serif;
 }
 
 /* Section Styling */
@@ -27,8 +32,8 @@ body, html {
 .container {
     display: flex;
     align-items: center;
-    gap: 20px;
-    max-width: 1200px;
+    gap: 50px;
+    max-width: 70%;
     width: 100%;
 }
 
@@ -51,8 +56,11 @@ body, html {
 }
 
 .text-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-family: 'DM Serif Text', serif;
+    letter-spacing: 3px;
+    font-weight: 500;
 }
 
 .text-container p {
@@ -78,13 +86,15 @@ body, html {
 
 .metric-title {
     font-size: 1.1rem;
+    font-family: 'DM Serif Text', serif;
     margin-bottom: 5px;
-    color: #ffcc00; /* Yellow color for titles */
+    color: #ED746F; /* Yellow color for titles */
 }
 
 .metric-value {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-family: 'DM Serif Text', serif;
+    font-weight: 500;
 }
 
 /* Sales Box */
@@ -96,21 +106,23 @@ body, html {
 }
 
 .sales-title {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    font-family: 'DM Serif Text', serif;
     margin-bottom: 10px;
-    color: #ffcc00; /* Yellow color for title */
+    color: #ED746F; /* Yellow color for titles */
 }
 
 .sales-value {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: 'DM Serif Text', serif;
+    font-weight: 500;
 }
 
 /* Section Title */
 .section-title {
-    font-family: 'Emblema One', cursive;
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-family: 'Emblema One', cursive !important;
+    font-size: 75px;
+    margin-bottom: 100px;
     text-align: center;
-    color: #ffcc00; /* Yellow color for emphasis */
+    color: #ED746F; /* Yellow color for emphasis */
 }

@@ -1,0 +1,186 @@
+/*per importare il font DM Serif Text */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+/*per importare il font Emblema One */
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Full-page black background */
+body, html {
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: 'DM Serif Text', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Container */
+.total-investment-company {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Title Styling */
+h1 {
+    font-family: 'Emblema One', cursive !important;
+    font-size: 75px;
+    color: #ED746F;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+/* Content Wrapper */
+.content-container {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-start !important;
+}
+
+/* Left Side - Form */
+.form-container {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Side - Results */
+.results-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+/* Small introductory text above results */
+.results-container p {
+    font-size: 18px;
+    color: #ED746F;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Results Section */
+.results {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: left;
+}
+#intro_result {
+    font-size: 25px;
+    color: #ED746F;
+}
+/* Styling for individual result items */
+.results p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #DBDADA;
+}
+
+.results h3 {
+    font-size: 22px;
+    margin: 5px 0;
+    color: white;
+    margin-bottom: 15px
+    letter-spacing: 10px;
+}
+.predictions {
+    margin-top: 20px;
+}
+.predictions p {
+    font-size: 17px;
+    margin: 8px 0;
+    color: white;
+    color: #DBDADA;
+}
+/* Form Styling */
+.campaign-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    display: block;
+    color: black;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Button Styling */
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.extra-message {
+    margin-top: 20px;
+    margin-left: -15px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.extra-message p {
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.launch-btn {
+    padding: 10px 20px;
+    background-color: #ed746f;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 550;
+    width: 80%;
+    transition: background 0.3s;
+    font-size: 18px;
+    items-align:left;
+    font-family: 'Emblema One', cursive !important;
+    letter-spacing: 2px;
+}
+
+.launch-btn:hover {
+    background-color: #d63f3a;
+}
+
